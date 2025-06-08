@@ -4,13 +4,19 @@ import { motion } from "framer-motion";
 import scalyxLogo from '../assets/scalyx-logo.svg';
 import notification from '../assets/notification.svg';
 import DropDown from '../assets/dropdown.svg';
+import jewelry from '../assets/jewelry.svg';
+import message from '../assets/message.svg';
+import user from '../assets/user.svg';
 import ProfileSettings from '../assets/profile-settings.svg';
 import LogoutIcon from '../assets/logout.svg';
 import {
     Popover,
     PopoverTrigger,
     PopoverContent,
+    Select,
+    SelectItem,
 } from "@heroui/react";
+import dropDownIconUrl from '../assets/dropdown.svg';
 import { cn } from "@heroui/react";
 
 // Placeholder Icon Components (replace with your actual icons)
@@ -65,9 +71,23 @@ const NavBar = () => {
 
     const toggleMenu = () => setIsOpen(!isOpen);
     const navigate = useNavigate();
+    const inputWrapperStyle = "border border-[#F0F0F0] focus-within:border-blue-500 rounded-md";
+
+    const options = [
+        {
+            key: "jewelry",
+            label: "Jewelry",
+            image: jewelry,
+        },
+        {
+            key: "cloth",
+            label: "cloth",
+            image: jewelry,
+        },
+      ];
 
     return (
-        <header className="w-full px-8 py-4 font-medium flex items-center justify-between relative z-10 md:px-6 sm:px-4 shadow-[0px_1px_14px_0px_#273C5B24]">
+        <header className="w-full px-8 py-4 font-medium flex items-center justify-between relative z-10 md:px-6 sm:px-4">
             {/* Mobile Menu Button */}
             <button
                 className="flex-col justify-center items-center hidden lg:flex"
@@ -83,70 +103,84 @@ const NavBar = () => {
             </button>
 
             {/* Desktop Navigation */}
-            <div className="w-full flex justify-between items-center lg:hidden">
-                <nav className="flex items-center">
-                    <img src={scalyxLogo} className="w-[7.125rem] cursor-pointer" onClick={() => navigate('/')} />
-                </nav>
+            <div className="w-full flex justify-center items-center lg:hidden">
+                <div className="max-w-7xl w-full flex justify-between items-center">
+                    <div className="flex gap-4">
+                        <div>
+                            <img src={scalyxLogo} className="w-[6.25rem] cursor-pointer" onClick={() => navigate('/')} />
 
-                <nav className="flex items-center">
-                    <CustomLink href="/dashboard" title="Dashboard" notify="0" />
-                    <CustomLink href="/orders" title="Orders" notify="1" />
-                    <CustomLink href="/shipping" title="Shipping" notify="0" />
-                    <CustomLink href="/returns" title="Returns" notify="0" />
-                    <CustomLink href="/invoices" title="Invoices" notify="0" />
-                    <CustomLink href="/payments" title="Payments" notify="0" />
-                    <CustomLink href="/inventory" title="Inventory" notify="0" />
-                    <CustomLink href="/work-order" title="Work Order" notify="0" />
-                </nav>
+                            <div className="text-[0.825rem] text-[#6B7280]">
+                                B2B Exchange
+                            </div>
+                        </div>
 
-                <div className="flex flex-row gap-[0.75rem]">
-                    <img src={notification} />
-
-                    <div className="flex justify-center">
-                        <Popover placement="bottom-end" color="white" open={isPopOverOpen}
-                            onOpenChange={(open) => setIsPopOverOpen(open)} className="bg-white">
-                            <PopoverTrigger>
-                                <div className="flex justify-center items-center cursor-pointer">
-                                    <div className="bg-[#D2E9FE] rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center text-[1.25rem]">
-                                        A
+                        <Select
+                            defaultSelectedKeys={["jewelry"]} 
+                            disallowEmptySelection 
+                            variant="bordered"
+                            className="w-44 focus:ring-0 focus:outline-none focus:border-transparent !border-gray-300"
+                            classNames={{
+                                trigger: inputWrapperStyle,
+                            }}
+                            selectorIcon={
+                                <img
+                                    src={dropDownIconUrl}
+                                    alt="dropdown icon"
+                                    className="w-4 h-4 text-gray-500"
+                                />
+                            }
+                            renderValue={(items) => {
+                                return items.map((item) => (
+                                    <div key={item.key} className="flex items-center gap-2">
+                                        <img src={jewelry} alt="Selected" className="w-5 h-5 object-contain" />
+                                        <span>{item.textValue}</span>
                                     </div>
-                                    <div className="pl-[5px]">
+                                ));
+                            }}
+                        >
+                            {options.map((option) => (
+                                <SelectItem
+                                    key={option.key}
+                                    value={option.key}
+                                    textValue={option.label}
+                                >
+                                    <div className="flex items-center gap-2">
                                         <img
-                                            src={DropDown}
-                                            className={cn(
-                                                "transition-transform duration-200 transform origin-center",
-                                                isPopOverOpen ? "rotate-180" : "rotate-0"
-                                            )}
-                                            alt="Dropdown Icon"
+                                            src={option.image}
+                                            alt={option.label}
+                                            className="w-5 h-5 object-contain"
                                         />
+                                        <span>{option.label}</span>
                                     </div>
-                                </div>
-                            </PopoverTrigger>
+                                </SelectItem>
+                            ))}
+                        </Select>
+                    </div>
 
-                            <PopoverContent>
-                                <div className="py-[0.65rem] px-[0.55rem] flex flex-col justify-start items-start">
-                                    <div className="text-[0.875rem] text-[#6E6E70] pb-[0.713rem] cursor-pointer">
-                                        acmeinc@gmail.com
-                                    </div>
+                    <nav className="flex items-center">
+                        <CustomLink href="/home" title="Home" notify="0" />
+                        <CustomLink href="/blog" title="Blog" notify="0" />
+                        <CustomLink href="/faq" title="FAQs" notify="0" />
+                    </nav>
 
-                                    <Link to="/profile-settings">
-                                        <div className="text-[0.875rem] text-[#22223B] pb-[0.713rem] flex justify-center gap-[5px] cursor-pointer">
-                                            <div className="w-4 flex justify-center">
-                                                <img src={ProfileSettings} alt="Profile Settings" />
-                                            </div>
-                                            Profile Settings
-                                        </div>
-                                    </Link>
+                    <div className="flex flex-row gap-[1.5rem]">
+                        <Select
+                            defaultSelectedKeys={["EN"]}
+                            variant="light"
+                            disallowEmptySelection
+                            className="w-20 bg-transparent focus:outline-none focus:ring-0"
+                            classNames={{
+                                trigger: `${inputWrapperStyle} bg-transparent px-2 py-1 focus:outline-none focus:ring-0 focus:border-none shadow-none border-none`,
+                            }}
+                        >
+                            <SelectItem key="EN" value="EN">
+                                EN
+                            </SelectItem>
+                        </Select>
 
-                                    <div className="text-[0.875rem] text-[#9C0C0C] flex justify-center gap-[5px] cursor-pointer" onClick={() => navigate('/login')}>
-                                        <div className="w-4 flex justify-center">
-                                            <img src={LogoutIcon} />
-                                        </div>
-                                        Log out
-                                    </div>
-                                </div>
-                            </PopoverContent>
-                        </Popover>
+                        <img src={notification} />
+                        <img src={message} />
+                        <img src={user} />
                     </div>
                 </div>
             </div>
