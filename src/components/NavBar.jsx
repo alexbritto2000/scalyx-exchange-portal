@@ -158,7 +158,7 @@ const NavBar = () => {
                     </div>
 
                     <nav className="flex items-center">
-                        <CustomLink href="/home" title="Home" notify="0" />
+                        <CustomLink href="/" title="Home" notify="0" />
                         <CustomLink href="/blog" title="Blog" notify="0" />
                         <CustomLink href="/faq" title="FAQs" notify="0" />
                     </nav>

@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Retailer from './Retailer';
 import { Button, Input, Popover, PopoverContent, PopoverTrigger, Select, SelectItem } from '@heroui/react';
 import { Slider } from "@heroui/react";
+import Wholesaler from './Wholesaler';
 
 const SliderComponent = ({ value, setValue }) => {
     // Helper to format currency without trailing .00
@@ -154,7 +155,8 @@ const Dashboard = () => {
 
             <div className='px-8 py-8 flex justify-center items-center bg-[#EBF0F2]'>
                 <div className='w-full max-w-7xl'>
-                    <Retailer />
+                    {activeTab == 'Retailer' && <Retailer />}
+                    {activeTab == 'Wholesaler' && <Wholesaler />}
                 </div>
             </div>
         </div>

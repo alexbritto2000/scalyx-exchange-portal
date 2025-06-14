@@ -3,24 +3,27 @@ import GrayScalyx from '../../assets/gray-scalyx.svg';
 import GrayHeart from '../../assets/gray-heart.svg';
 import Ring1 from '../../assets/ring-1.svg';
 import GemSupply from '../../assets/gem-supply.svg';
-import WholeSaler1 from '../../assets/whole-saler-1.svg';
-import M from '../../assets/M.svg';
-import GreenVerified from '../../assets/green-verified.svg';
-import ThreeStars from '../../assets/3-stars.svg';
 import LeftBracs from '../../assets/left-bracs.svg';
 import RightBracs from '../../assets/right-bracs.svg';
+import M from '../../assets/m.svg';
+import { IoIosMore } from "react-icons/io";
+import { Button } from '@heroui/react';
+import TrustedIcon from '../../assets/trusted.svg';
 import Products from '../../assets/products.svg';
 import VerifiedIcon from '../../assets/verified-icon.svg';
+import DealsIcon from '../../assets/retailer/deals.svg';
+import HandsShakeIcon from '../../assets/retailer/Two persons hands shake. grey background.svg';
+import BgCircle from '../../assets/bg-circle-white.svg';
 import ProductIcon from '../../assets/product-icon.svg';
-import SealCheckSupplier from '../../assets/SealCheckSupplier.svg';
-import TrustedIcon from '../../assets/trusted.svg';
-import RealisticJewelry from '../../assets/realistic-jewelry-on-stones.svg';
-import { Button } from '@heroui/button';
+import WholeSaler1 from '../../assets/whole-saler-1.svg';
+import ThreeStars from '../../assets/3-stars.svg';
+import GreenVerified from '../../assets/green-verified.svg';
 import { IoStar } from "react-icons/io5";
 import { IoIosStarOutline } from "react-icons/io";
-import GuaranteeIcon from '../../assets/guarantee.svg';
+import SealCheckSupplier from '../../assets/SealCheckSupplier.svg';
 import WalletIcon from '../../assets/wallet.svg';
-import BgCircle from '../../assets/bg-circle-white.svg';
+import GuaranteeIcon from '../../assets/guarantee.svg';
+import AiMatching from '../../assets/retailer/ai-matching.svg';
 
 const StarRating = ({ rating }) => {
     return (
@@ -36,23 +39,19 @@ const StarRating = ({ rating }) => {
     );
 };
 
-const Retailer = () => {
+const Wholesaler = () => {
     const cards = [1, 2, 3, 4, 5];
     const cards2 = [1, 2, 3, 4, 5, 6];
 
     return (
         <div>
             <div className='flex flex-col gap-7'>
-                <div className='font-medium text-[1.25rem]'>
-                    Recommended For You
-                </div>
-
-                {/* Cards */}
+                {/* 1. Cards */}
                 <div className='flex flex-wrap justify-between gap-[1rem]'>
                     {/* card - 1 */}
                     {cards.map(item => (
                         <div className='border-1 border-[#E5E7EB] shadow-[0px_6px_4.9px_0px_#0000000A] p-4 rounded-lg w-[15.125rem] bg-white'>
-                            <div className='flex w-full justify-between'>
+                            {/* <div className='flex w-full justify-between'>
                                 <img src={GrayScalyx} />
                                 <img src={GrayHeart} className='cursor-pointer' />
                             </div>
@@ -65,6 +64,44 @@ const Retailer = () => {
 
                             <div className='mt-[2px] text-[0.82rem] text-[#111928]'>
                                 Celestial Crown Women's White Gold Ring in 10K, Crown-Inspired Design
+                            </div> */}
+                            <div className='flex justify-between'>
+                                <div className='text-[#111928] font-semibold'>
+                                    Indian-style ring with diamond detailing and traditional craftsmanship.
+                                </div>
+
+                                <div>
+                                    <IoIosMore className='text-[#D1D5DB]' />
+                                </div>
+                            </div>
+
+                            <div className='border-b-1 border-[#F3F4F6] my-2' />
+
+                            <div className='flex justify-between text-[0.82rem] mb-2'>
+                                <div className='text-[#111928] font-semibold'>
+                                    Quantity:
+                                </div>
+                                <div className='text-[#4B5563]'>25</div>
+                            </div>
+
+                            {/* <div className='border-b-1 border-[#F3F4F6] my-2' /> */}
+
+                            <div className='flex justify-between text-[0.82rem]'>
+                                <div className='text-[#111928] font-semibold'>
+                                    Delivery by:
+                                </div>
+                                <div className='text-[#4B5563]'>15.06.2025</div>
+                            </div>
+
+                            <div className='border-b-1 border-[#F3F4F6] my-2' />
+
+                            <div className='flex flex-col gap-1 text-[0.82rem]'>
+                                <div className='text-[#111928] font-semibold'>
+                                    Additional notes:
+                                </div>
+                                <div className='text-[#4B5563]'>
+                                    White gold 18K with GIA-certified diamonds required
+                                </div>
                             </div>
 
                             <div className='mt-4 flex flex-row items-center justify-between'>
@@ -99,11 +136,12 @@ const Retailer = () => {
                         type="button"
                         className="font-[0.82rem] text-white bg-black rounded-md px-[2rem] py-[0.75rem]"
                     >
-                        Sign up to view all products
+                        Sign up to view all RFQs
                     </Button>
                 </div>
             </div>
 
+            {/* 2. Why Suppliers Love Exchange Block */}
             <div className='flex flex-col gap-7 mt-24'>
                 <div className='font-medium text-[1.25rem]'>
                     Why Retailers Love Exchange
@@ -111,14 +149,14 @@ const Retailer = () => {
 
                 <div className='grid grid-cols-3 gap-3'>
                     <div className='bg-[#FFFFFF] rounded-lg py-[1.5rem] px-[2rem]'>
-                        <img src={Products} />
+                        <img src={DealsIcon} />
 
                         <div className='text-[1.25rem] text-[#111928] mt-8'>
-                            2M products available
+                            2,000 deals every day
                         </div>
 
                         <div className='text-[#4B5563] text-[0.82rem] mt-2'>
-                            Scale your business with a diverse catalog of wholesaler-verified products
+                            Connecting wholesalers and retailers with thousands of new opportunities daily
                         </div>
                     </div>
 
@@ -126,11 +164,11 @@ const Retailer = () => {
                         <img src={VerifiedIcon} />
 
                         <div className='text-[1.25rem] text-[#111928] mt-8'>
-                            Verified wholesalers with real reviews
+                            Verified retailers with real reviews
                         </div>
 
                         <div className='text-[#4B5563] text-[0.82rem] mt-2'>
-                            Connect with wholesalers backed by proven reputations and genuine customer insights
+                            Connect with retailers backed by proven reputations and genuine customer insights
                         </div>
                     </div>
 
@@ -138,25 +176,26 @@ const Retailer = () => {
                         <img src={TrustedIcon} />
 
                         <div className='text-[1.25rem] text-[#111928] mt-8'>
-                            Trusted by over 2,000 retailers
+                            Trusted by over 1,000 suppliers
                         </div>
 
                         <div className='text-[#4B5563] text-[0.82rem] mt-2'>
-                            Helping thousands of retailers source the right products faster and more efficiently
+                            Trusted by thousands of wholesalers for transparent and dependable service
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/* 3. Black container */}
             <div className='mt-24'>
                 <div className='rounded-lg bg-black flex'>
-                    <div className='w-[60%] p-16 overflow-hidden relative'>
+                    <div className='w-[60%] p-16 relative overflow-hidden'>
                         <div className='text-white text-[1.875rem]'>
-                            Find Your Jewelry wholesalers
+                            Reach thousands of retailers
                         </div>
 
                         <div className='mt-4 text-[0.75rem] text-[#D1D5DB]'>
-                            Discover reliable wholesale partners specializing in gold, silver, gemstones, and a wide variety of exquisite jewelry materials—all backed by secure transactions and AI-powered matching to connect you with the best suppliers
+                            Showcase your products to thousands of engaged retail buyers every day, expanding your reach and increasing your opportunities for meaningful business connections and sales growth
                         </div>
 
                         <div className='mt-11 grid grid-cols-2 gap-2 text-white'>
@@ -174,19 +213,20 @@ const Retailer = () => {
                                 Sign up now
                             </Button>
                         </div>
- 
+
                         <img src={BgCircle} className='absolute right-[-10rem] bottom-0' />
                     </div>
 
                     <div className='w-[40%]'>
-                        <img src={RealisticJewelry} className='object-cover rounded-r-lg h-[100%]' />
+                        <img src={HandsShakeIcon} className='object-cover rounded-r-lg h-[100%]' />
                     </div>
                 </div>
             </div>
 
+            {/* 4.Retailers with the highest trust score */}
             <div className='flex flex-col gap-7 mt-24'>
                 <div className='font-medium text-[1.25rem]'>
-                    wholesalers with the highest trust score
+                    Retailers with the highest trust score
                 </div>
 
                 <div className='grid grid-cols-3 gap-[0.75rem]'>
@@ -247,17 +287,18 @@ const Retailer = () => {
                 </div>
             </div>
 
-            <div className='my-[10rem] grid grid-cols-3 gap-10'>
+            {/* 5. Features */}
+            <div className='mb-[10rem] mt-24 pt-16 grid grid-cols-3 gap-10 border-t-1 border-[#E5E7EB]'>
                 <div className='flex flex-row items-start gap-3'>
                     <img src={SealCheckSupplier} />
 
                     <div className='flex flex-col gap-2'>
                         <div className='font-medium'>
-                            Verified Suppliers
+                            Verified Retailers
                         </div>
 
                         <div className='text-[0.82rem]'>
-                            Our carefully screened wholesalers go through a thorough verification process to ensure they provide authentic products and deliver dependable, high-quality service.
+                            Our carefully screened retailers go through a thorough verification process to ensure they provide authentic products and deliver dependable, high-quality service.
                         </div>
                     </div>
                 </div>
@@ -277,15 +318,15 @@ const Retailer = () => {
                 </div>
 
                 <div className='flex flex-row items-start gap-3'>
-                    <img src={WalletIcon} className='w-4 mt-[6px]' />
+                    <img src={AiMatching} className='w-4 mt-[6px]' />
 
                     <div className='flex flex-col gap-2'>
                         <div className='font-medium'>
-                            Best Prices
+                            AI Matching
                         </div>
 
                         <div className='text-[0.82rem]'>
-                            Access exclusive wholesale rates negotiated with trusted suppliers to ensure you receive the best value in the market
+                            Experience seamless and efficient retailer matching, powered by cutting-edge artificial intelligence designed to connect you with the most relevant business partners.
                         </div>
                     </div>
                 </div>
@@ -294,4 +335,4 @@ const Retailer = () => {
     )
 }
 
-export default Retailer
+export default Wholesaler

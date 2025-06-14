@@ -1,15 +1,15 @@
 import React from 'react'
-import AuthBanner from '../assets/auth-banner.svg';
 import { Outlet } from 'react-router-dom';
+import NavBar from './NavBar';
 
 const AuthLayout = () => {
     return (
-        <div className='flex items-center'>
-            <img src={AuthBanner} className='h-[100vh] w-[45%] object-cover' />
-
-            <div className='w-[55%]'>
-                <Outlet />
+        <div className='relative flex flex-col min-h-screen'>
+            <div className="sticky top-0 z-50 bg-[#FBFFFF]" >
+                <NavBar className="sticky top-0 z-50 bg-[#FBFFFF]" />
             </div>
+
+            <Outlet />
         </div>
     )
 }
