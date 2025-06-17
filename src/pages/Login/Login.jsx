@@ -77,6 +77,7 @@ const Login = () => {
     setSubmitting(false);
     // Add your navigation or authentication logic here
     navigate('/retailer'); // Redirect to dashboard after login
+    localStorage.setItem('role','retailer')
   };
 
   const [current, setCurrent] = useState(0);

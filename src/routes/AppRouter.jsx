@@ -11,6 +11,11 @@ import Connections from '../pages/Retailer/Connections/Connections'
 import Favourites from '../pages/Retailer/Favourites/Favourites'
 import Notifications from '../pages/Retailer/Notifications/Notifications'
 import Settings from '../pages/Retailer/Settings/Settings'
+import Catalog from '../pages/Retailer/Catalog/Catalog'
+import RFQs from '../pages/Retailer/RFQs/RFQs'
+import Wholesalers from '../pages/Retailer/Wholesalers/Wholesalers'
+import Blog from '../pages/Blog/Blog'
+import Faq from '../pages/Faq/Faq'
 
 const AppRouter = () => {
     return (
@@ -24,6 +29,8 @@ const AppRouter = () => {
 
             <Route element={<Layout />}>
                 <Route path="/" element={<Dashboard />} />
+                <Route path="blog" element={<Blog />} />
+                <Route path="faq" element={<Faq />} />
 
                 <Route path="retailer" element={<Retailer />}>
                     <Route path="" element={<RetailerDashboard />} />
@@ -31,6 +38,12 @@ const AppRouter = () => {
                     <Route path="favorites" element={<Favourites />} />
                     <Route path="notifications" element={<Notifications />} />
                     <Route path="settings" element={<Settings />} />
+                </Route>
+
+                <Route path="retailer">
+                    <Route path="catalog" element={<Catalog />} />
+                    <Route path="rfqs" element={<RFQs />} />
+                    <Route path="wholesalers" element={<Wholesalers />} />
                 </Route>
             </Route>
 

@@ -81,7 +81,7 @@ const RetailerDashboard = () => {
                     <div className='flex gap-1 items-center'>
                       <img src={ProductIcon} />
 
-                      <div>325 <span className='text-[#6B7280]'>Products</span></div>
+                      <div className='text-[0.82rem]'>325 <span className='text-[#6B7280]'>Products</span></div>
                     </div>
                   </div>
                 </div>
@@ -256,7 +256,7 @@ const RetailerDashboard = () => {
                     <div className='flex gap-1 items-center'>
                       <img src={ProductIcon} />
 
-                      <div>325 <span className='text-[#6B7280]'>Products</span></div>
+                      <div className='text-[0.82rem]'>325 <span className='text-[#6B7280]'>Products</span></div>
                     </div>
                   </div>
                 </div>

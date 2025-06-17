@@ -68,6 +68,7 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isPopOverOpen, setIsPopOverOpen] = useState(false);
+    const role = localStorage.getItem('role');
 
     const toggleMenu = () => setIsOpen(!isOpen);
     const navigate = useNavigate();
@@ -84,7 +85,7 @@ const NavBar = () => {
             label: "cloth",
             image: jewelry,
         },
-      ];
+    ];
 
     return (
         <header className="w-full px-8 py-4 font-medium flex items-center justify-between relative z-10 md:px-6 sm:px-4">
@@ -115,8 +116,8 @@ const NavBar = () => {
                         </div>
 
                         <Select
-                            defaultSelectedKeys={["jewelry"]} 
-                            disallowEmptySelection 
+                            defaultSelectedKeys={["jewelry"]}
+                            disallowEmptySelection
                             variant="bordered"
                             className="w-44 focus:ring-0 focus:outline-none focus:border-transparent !border-gray-300"
                             classNames={{
@@ -158,7 +159,17 @@ const NavBar = () => {
                     </div>
 
                     <nav className="flex items-center">
-                        <CustomLink href="/" title="Home" notify="0" />
+                        {role != 'retailer' && (
+                            <CustomLink href="/" title="Home" notify="0" />
+                        )}
+                        {role == 'retailer' && (
+                            <>
+                                <CustomLink href="/retailer" title="Dashboard" notify="0" />
+                                <CustomLink href="/retailer/catalog" title="Catalog" notify="0" />
+                                <CustomLink href="/retailer/rfqs" title="RFQs" notify="0" />
+                                <CustomLink href="/retailer/wholesalers" title="Wholesalers" notify="0" />
+                            </>
+                        )}
                         <CustomLink href="/blog" title="Blog" notify="0" />
                         <CustomLink href="/faq" title="FAQs" notify="0" />
                     </nav>
